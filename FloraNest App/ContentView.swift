@@ -40,6 +40,26 @@ struct CameraView: UIViewControllerRepresentable {
     }
 }
 
+import AVFoundation
+
+func checkCameraAccess(completion: @escaping (Bool) -> Void) {
+    let status = AVCaptureDevice.authorizationStatus(for: .video)
+    switch status {
+    case .authorized:
+        completion(true)
+    case .notDetermined:
+        AVCaptureDevice.requestAccess(for: .video) { granted in
+            completion(granted)
+        }
+    case .denied, .restricted:
+        completion(false)
+    @unknown default:
+        completion(false)
+    }
+}
+
+
+
 struct ContentView: View {
     @State private var isShowingCamera = false
     @State private var scannedImage: UIImage?
@@ -62,7 +82,17 @@ struct ContentView: View {
 
                 // Plant Button
                 Button(action: {
-                    isShowingCamera = true
+                    checkCameraAccess { granted in
+                        if granted {
+                            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                                isShowingCamera = true
+                            } else {
+                                print("Camera not available")
+                            }
+                        } else {
+                            print("Camera access denied. Please enable it in settings.")
+                        }
+                    }
                 }) {
                     Text("Scan a plant")
                         .font(.headline)
