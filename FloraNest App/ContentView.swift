@@ -71,8 +71,10 @@ struct ContentView: View {
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
+            
+            //add Home Button + Account / Menu after..
 
-            // Logo and Button
+            // Logo and scan Button
             VStack {
                 Spacer()
                 Text("FloraNest.")
