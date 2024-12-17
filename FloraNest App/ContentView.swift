@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import AVFoundation
 
 // Camera View
 struct CameraView: UIViewControllerRepresentable {
@@ -40,8 +41,6 @@ struct CameraView: UIViewControllerRepresentable {
     }
 }
 
-import AVFoundation
-
 func checkCameraAccess(completion: @escaping (Bool) -> Void) {
     let status = AVCaptureDevice.authorizationStatus(for: .video)
     switch status {
@@ -58,64 +57,70 @@ func checkCameraAccess(completion: @escaping (Bool) -> Void) {
     }
 }
 
-
-
 struct ContentView: View {
     @State private var isShowingCamera = false
     @State private var scannedImage: UIImage?
-
+    
     var body: some View {
-        ZStack {
-            // Background Image
-            Image("FNbackground")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-            
-            //add Home Button + Account / Menu after..
-
-            // Logo and scan Button
-            VStack {
-                Spacer()
-                Text("FloraNest.")
-                    .font(Font.custom("Fraunces", size: 50))
-                    .foregroundColor(.white)
-                Spacer()
-
-                // Plant Button
-                Button(action: {
-                    checkCameraAccess { granted in //Test to check if the user has given camera permissions.
-                        if granted {
-                            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                                isShowingCamera = true
-                            } else {
-                                print("Camera not available")
+        NavigationView {
+            ZStack {
+                // Background Image
+                Image("FNbackground")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                
+                // Logo and Buttons
+                VStack {
+                    Spacer()
+                    Text("FloraNest.")
+                        .font(Font.custom("Fraunces", size: 50))
+                        .foregroundColor(.white)
+                    Spacer()
+                    
+                    // Plant Button and Image Button
+                    HStack(spacing: 15) {
+                        // Plant Button
+                        Button(action: {
+                            checkCameraAccess { granted in
+                                if granted {
+                                    if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                                        isShowingCamera = true
+                                    } else {
+                                        print("Camera not available")
+                                    }
+                                } else {
+                                    print("Camera access denied. Please enable it in settings.")
+                                }
                             }
-                        } else {
-                            print("Camera access denied. Please enable it in settings.")
+                        }) {
+                            Text("Scan a plant")
+                                .font(.headline)
+                                .foregroundColor(.black)
+                                .padding()
+                                .background(Color.white)
+                                .cornerRadius(60)
+                                .accessibilityLabel("Scan a plant button")
+                        }
+                        .sheet(isPresented: $isShowingCamera) {
+                            CameraView(selectedImage: $scannedImage)
+                        }
+                        
+                        // Image Button
+                        NavigationLink(destination: MyPlants().navigationBarBackButtonHidden(true)) {
+                            Image("BonsaiHomeBtn")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 50, height: 50)
                         }
                     }
-                }) {
-                    Text("Scan a plant")
-                        .font(.headline)
-                        .foregroundColor(.black)
-                        .padding()
-                        .background(Color.white)
-                        .cornerRadius(60)
-                        .accessibilityLabel("Scan a plant button")
+                    .padding(.bottom, 20)
                 }
-                .padding(.bottom, 30)
-                .sheet(isPresented: $isShowingCamera) {
-                    CameraView(selectedImage: $scannedImage)
-                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }
-
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
