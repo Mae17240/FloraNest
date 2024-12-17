@@ -84,7 +84,7 @@ struct ContentView: View {
 
                 // Plant Button
                 Button(action: {
-                    checkCameraAccess { granted in
+                    checkCameraAccess { granted in //Test to check if the user has given camera permissions.
                         if granted {
                             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                                 isShowingCamera = true
