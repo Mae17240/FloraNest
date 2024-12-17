@@ -44,14 +44,14 @@ struct MyPlants: View {
                         .overlay(
                             
                             HStack(spacing: 200){
-                                NavigationLink(destination: ContentView()){
+                                NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true)){
                                     Image("HomeBtn")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 57, height: 57)
                                 }
                                 
-                                NavigationLink(destination: PlantFeedback()){
+                                NavigationLink(destination: PlantFeedback().navigationBarBackButtonHidden(true)){
                                     Image("PlantBtn")
                                         .resizable()
                                         .scaledToFit()

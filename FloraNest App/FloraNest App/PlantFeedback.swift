@@ -44,7 +44,7 @@ struct PlantFeedback: View {
                         .overlay(
                             
                             HStack(spacing: 200){
-                                NavigationLink(destination: ContentView()){
+                                NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true)){
                                     Image("HomeBtn")
                                         .resizable()
                                         .scaledToFit()
