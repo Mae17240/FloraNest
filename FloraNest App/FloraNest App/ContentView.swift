@@ -79,7 +79,7 @@ struct ContentView: View {
                     Spacer()
                     
                     // Plant Button and Image Button
-                    HStack(spacing: 15) {
+                    HStack(spacing: 50) {
                         // Plant Button
                         Button(action: {
                             checkCameraAccess { granted in
@@ -114,7 +114,8 @@ struct ContentView: View {
                                 .frame(width: 50, height: 50)
                         }
                     }
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 18)
+                    .padding(.leading, 95)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
