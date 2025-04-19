@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		451959C12DB41028005F44DD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 451959C02DB40FFD005F44DD /* .gitignore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		458313B02CDE96DE008F02E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		451959C02DB40FFD005F44DD /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4583139F2CDE96DD008F02E1 /* FloraNest App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FloraNest App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		458313AF2CDE96DE008F02E1 /* FloraNest AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FloraNest AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		458313B92CDE96DE008F02E1 /* FloraNest AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FloraNest AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +80,7 @@
 		458313962CDE96DD008F02E1 = {
 			isa = PBXGroup;
 			children = (
+				451959C02DB40FFD005F44DD /* .gitignore */,
 				458313A12CDE96DD008F02E1 /* FloraNest App */,
 				458313B22CDE96DE008F02E1 /* FloraNest AppTests */,
 				458313BC2CDE96DE008F02E1 /* FloraNest AppUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				451959C12DB41028005F44DD /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
