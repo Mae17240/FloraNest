@@ -12,7 +12,7 @@ struct MyPlants: View {
             
             ZStack {
                 //Background Image
-                Image("MyPlants")
+                Image("MainHome")
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
