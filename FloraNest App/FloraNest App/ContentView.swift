@@ -131,7 +131,7 @@ struct ContentView: View {
                         }
                         
                         // My Plants Button
-                        NavigationLink(destination: MyPlants().navigationBarBackButtonHidden(true)) {
+                        NavigationLink(destination: AccountPage().navigationBarBackButtonHidden(true)) {
                             Image("BonsaiHomeBtn")
                                 .resizable()
                                 .scaledToFit()
