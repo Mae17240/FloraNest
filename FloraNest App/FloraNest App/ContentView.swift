@@ -4,7 +4,11 @@ import AVFoundation
 import CoreML
 import Vision
 
-// MARK: - Adding Camera Functionality
+
+// MARK: - Camera Functionality
+
+//allowing for the camera to be accessed
+//+ user granted permisson for the camera request.
 struct CameraView: UIViewControllerRepresentable {
     @Binding var selectedImage: UIImage?
     @Environment(\.presentationMode) var presentationMode
@@ -44,7 +48,7 @@ struct CameraView: UIViewControllerRepresentable {
     }
 }
 
-// MARK: - Apple cameara access
+// MARK: - cameara access
 func checkCameraAccess(completion: @escaping (Bool) -> Void) {
     switch AVCaptureDevice.authorizationStatus(for: .video) {
     case .authorized:
@@ -101,7 +105,6 @@ struct ContentView: View {
                     
                     // Plant Button and Image Button
                     HStack(spacing: 50) {
-                        // Scan Plant Button
                         Button(action: {
                             checkCameraAccess { granted in
                                 if granted {
@@ -131,7 +134,7 @@ struct ContentView: View {
                         }
                         
                         // My Plants Button
-                        NavigationLink(destination: AccountPage().navigationBarBackButtonHidden(true)) {
+                        NavigationLink(destination: SignInOrUp().navigationBarBackButtonHidden(true)) {
                             Image("BonsaiHomeBtn")
                                 .resizable()
                                 .scaledToFit()
@@ -207,9 +210,10 @@ struct ContentView: View {
         }
     }
     
+    // plant description
     private func getPlantDescription(for plantName: String) -> String {
    
-        return "This is a \(plantName). (add plant description and add model !!!)"
+        return "This is a \(plantName). (plant desc, add too plants finctionalitty !!!)"
         
 
     }
@@ -223,6 +227,8 @@ struct Plant: Identifiable {
     let image: UIImage?
 }
 
+
+//page displayed after plant is scanned 
 struct PlantResultsView: View {
     let plant: Plant?
     let image: UIImage?
@@ -275,7 +281,7 @@ struct PlantResultsView: View {
                         Spacer()
                         
                         HStack {
-                            // Learn More Button
+                            // Learn More
                             NavigationLink(destination: ContentView()) {
                                 Text("Home")
                                     .font(.headline)
@@ -287,8 +293,8 @@ struct PlantResultsView: View {
                             }
                             
                             // Home Button
-                            NavigationLink(destination: PlantFeedback().navigationBarBackButtonHidden(false)) {
-                                Text("Learn More")
+                            NavigationLink(destination: PlantFeedback().navigationBarBackButtonHidden(true)) {
+                                Text("Add to Collection")
                                     .font(.headline)
                                     .foregroundColor(.black)
                                     .padding()
@@ -308,7 +314,6 @@ struct PlantResultsView: View {
 }
 
     
-    // Preview
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             ContentView()
