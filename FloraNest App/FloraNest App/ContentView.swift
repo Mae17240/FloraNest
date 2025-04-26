@@ -293,8 +293,8 @@ struct PlantResultsView: View {
                             }
                             
                             // Home Button
-                            NavigationLink(destination: PlantFeedback().navigationBarBackButtonHidden(true)) {
-                                Text("Add to Collection")
+                            NavigationLink(destination: MapData().navigationBarBackButtonHidden(true)) {
+                                Text("View Map data")
                                     .font(.headline)
                                     .foregroundColor(.black)
                                     .padding()
