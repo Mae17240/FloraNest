@@ -27,7 +27,7 @@ struct AccountPage: View {
 
 struct AccountPage_Previews: PreviewProvider {
     static var previews: some View {
-        AccountPage(userName: "Test") // updates on physical iphone ! 
+        AccountPage(userName: "Test") // updates on physical iphone !
             .previewDevice("iPhone 15")
     }
 }

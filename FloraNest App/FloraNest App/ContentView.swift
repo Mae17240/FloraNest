@@ -78,7 +78,7 @@ struct ContentView: View {
     private let plantModel: VNCoreMLModel? = {
         do {
             let config = MLModelConfiguration()
-            let model = try FloraNest_Large_Model(configuration: config).model
+            let model = try FloraNest_Model_V1_2_(configuration: config).model
             return try VNCoreMLModel(for: model)
         } catch {
             print("Model load error: \(error)")
