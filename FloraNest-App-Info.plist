@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Secrets.plist</key>
+	<string>-5BVr-It5HBex1Kfnc1XEaqE0VSTJOZ_K1BlrSnoNl8</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Regular.ttf</string>
