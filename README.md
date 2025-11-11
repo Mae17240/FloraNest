@@ -1,4 +1,7 @@
 # (BSc) Computer Science Degree Dissertation. 
+## Grade: 70.1%
+
+
 
 # FloraNest Plant Mobile application. 
 FloraNest is a Plant Scanning and deterction IOS application. 
