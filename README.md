@@ -1,3 +1,5 @@
+# (BSc) Computer Science Degree Dissertation. 
+
 # FloraNest Plant Mobile application. 
 FloraNest is a Plant Scanning and deterction IOS application. 
 The project features a CoreML model embedded into the application to differenceiate various outdoor and indoor species. 
