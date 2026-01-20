@@ -11,7 +11,7 @@ The project features a CoreML model embedded into the application to differencei
 - Accurate Plant Identification.
 
 ## CoreML Model.
-- Identification of 38 indoor and outdoor species.
+- Identification of 200 indoor and outdoor species.
 - Embedded and Trained CoreML Model that can be ran offline.
 
 ## Account System
